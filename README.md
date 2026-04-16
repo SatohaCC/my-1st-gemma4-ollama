@@ -1,24 +1,38 @@
+# 🛠 インストール手順
 
-### Ollamaをインストール
+このプロジェクトを実行するためのセットアップ手順です。
+
+## 1. Ollama のインストール
+Windows の PowerShell を開き、以下のコマンドを実行して Ollama をインストールします。
+
+```powershell
 irm https://ollama.com/install.ps1 | iex
+```
 
+## 2. Python 環境のセットアップ
+`uv` を使用して仮想環境の作成と、必要なライブラリのインストールを行います。
 
-### ollama 起動
-上下キーでモデルを選択してEnterで起動
-そのままコンソールでチャットは可能
+```bash
+# 依存関係の同期（仮想環境の自動作成・インストール）
+uv sync
+```
+新規インストールの場合、uv initから
+```bash
+uv init
+uv add ollama
+```
+
+## 3. モデルの準備と動作確認
+使用するモデル (`gemma4:e4b`) をダウンロードし、対話モードで起動します。
+
+```bash
+ollama run gemma4:e4b
+```
+
+> [!NOTE]
+> モデルの初回実行時にはダウンロードが始まります。完了後、そのままコンソールでチャットが可能です。
 
 ---
 
-
-# Ollamaサーバーの起動
-ollama serve
-
-# 別ターミナルで実行
-# E4B（最もバランスが良い）
-ollama run gemma4
-
-# 26B MoE（M3 Pro 36GBなら快適に動く）
-ollama run gemma4:26b
-
-# 31B Dense（36GB以上推奨）
-ollama run gemma4:31b
+### Ollamaの止め方
+タスクトレイから右クリックで止める？？

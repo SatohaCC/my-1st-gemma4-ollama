@@ -13,9 +13,15 @@ irm https://ollama.com/install.ps1 | iex
 `uv` を使用して仮想環境の作成と、必要なライブラリのインストールを行います。
 
 ```bash
+# uv自体のインストール
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+```bash
 # 依存関係の同期（仮想環境の自動作成・インストール）
 uv sync
 ```
+
 新規インストールの場合、uv initから
 ```bash
 uv init
